@@ -1,9 +1,10 @@
 import {createBrowserRouter} from "react-router-dom";
 import Layout from "../pages/Layout.tsx";
 import Home from "../pages/Home.tsx";
-import Categories from "../pages/Categories.tsx";
+import Tracks from "../pages/Tracks.tsx";
 import Auth from "../pages/Auth.tsx";
 import ErrorPage from "../pages/ErrorPage.tsx";
+import {ProtectedRoute} from "../components/ProtectedRoute.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -17,7 +18,9 @@ export const router = createBrowserRouter([
             },
             {
               path: 'categories',
-              element: <Categories />,
+                element: <ProtectedRoute>
+                    <Tracks />
+                </ProtectedRoute>,
             },
             {
                 path: 'auth',

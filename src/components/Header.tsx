@@ -1,12 +1,27 @@
 import {FC} from 'react'
-import {Link, NavLink} from "react-router-dom"
+import {Link, NavLink, useNavigate} from "react-router-dom"
 import {RiMusicAiFill} from 'react-icons/ri'
 import {FaSignOutAlt } from "react-icons/fa"
 import '../index.css'
+import {useAuth} from "../hooks/useAuth.ts";
+import {useAppDispatch} from "../store/hooks.ts";
+import {logout} from "../store/userSlice.ts";
+import {removeTokenFromLocalStorage} from "../helpers/localstorage.helper.ts";
+import {toast} from "react-toastify";
 
 
 const Header: FC = () => {
-    const isAuth = true
+    const isAuth = useAuth()
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
+
+    const  logoutHandler = () => {
+        dispatch(logout())
+        removeTokenFromLocalStorage('token')
+        toast.success('Вы вышли')
+        navigate('/')
+    }
+
     return (
         <header className='flex justify-between items-center bg-slate-800 p-4 backdrop-blur-sm shadow-sm '>
             <Link to='/'>
@@ -23,7 +38,7 @@ const Header: FC = () => {
                                         isActive ? 'text-white' : 'text-white/50'
                                     }
                                 >
-                                    Home
+                                    Главная
                                 </NavLink>
                             </li>
                             <li>
@@ -33,7 +48,7 @@ const Header: FC = () => {
                                         isActive ? 'text-white' : 'text-white/50'
                                     }
                                 >
-                                    Categories
+                                    Моя музыка
                                 </NavLink>
                             </li>
                         </ul>
@@ -41,13 +56,13 @@ const Header: FC = () => {
                 )}
             {
                 isAuth ? (
-                    <button className="btn btn-red">
+                    <button className="btn btn-red" onClick={logoutHandler}>
                         <span>Выйти</span>
                         <FaSignOutAlt />
                     </button>
                 ) : (
                     <Link to={'auth'} className='py-2 text-white/50 hover:text-white'>
-                        Войти / Зарегестрироваться
+                        Вход / Регистрация
                     </Link>
                 )
             }

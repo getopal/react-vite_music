@@ -1,7 +1,8 @@
 import {FC} from "react"
+import CreateTrackForm from "../components/CreateTrackForm.tsx";
 
 const Home: FC = () => {
-    return <div>HOME</div>
+    return <CreateTrackForm />
 }
 
 export default Home
