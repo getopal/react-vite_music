@@ -5,6 +5,7 @@ import Tracks from "../pages/Tracks.tsx";
 import Auth from "../pages/Auth.tsx";
 import ErrorPage from "../pages/ErrorPage.tsx";
 import {ProtectedRoute} from "../components/ProtectedRoute.tsx";
+import AddTrack from "../pages/AddTrack.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -17,7 +18,13 @@ export const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-              path: 'categories',
+                path: 'addtrack',
+                element: <ProtectedRoute>
+                    <AddTrack />
+                </ProtectedRoute>,
+            },
+            {
+              path: 'tracks',
                 element: <ProtectedRoute>
                     <Tracks />
                 </ProtectedRoute>,

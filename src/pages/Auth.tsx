@@ -3,7 +3,6 @@ import * as React from "react";
 import {AuthService} from "../services/auth.service.ts";
 import {toast} from "react-toastify";
 import {setTokenToLocalStorage} from "../helpers/localstorage.helper.ts";
-import {useDispatch} from "react-redux";
 import {useAppDispatch} from "../store/hooks.ts";
 import {login} from "../store/userSlice.ts";
 import {useNavigate} from "react-router-dom";

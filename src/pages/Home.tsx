@@ -1,8 +1,18 @@
 import {FC} from "react"
-import CreateTrackForm from "../components/CreateTrackForm.tsx";
+import {useAuth} from "../hooks/useAuth.ts";
 
 const Home: FC = () => {
-    return <CreateTrackForm />
+    const isAuth = useAuth()
+
+    return (
+            isAuth ? (
+                <h1 className='flex justify-center mt-10 text-xl '>Здравствуйте!<br/>
+                    Теперь вы дожете добавлять и прослушивать треки.</h1>
+            ) : (
+                <h1 className='flex justify-center mt-10 text-xl '>Войдите, чтобы увидеть больше</h1>
+            )
+    )
+
 }
 
 export default Home

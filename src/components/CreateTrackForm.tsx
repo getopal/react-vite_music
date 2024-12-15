@@ -53,13 +53,13 @@ const CreateTrackForm: React.FC = () => {
     };
 
     return (
-        <div className="w-full max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-4">Create New Track</h2>
+        <div className="w-full max-w-lg mx-auto p-6  mt-10 bg-slate-800  rounded-lg shadow-md ">
+            <h2 className="text-2xl font-bold mb-4">Добавить трек</h2>
             {error && <p className="text-red-500 mb-4">{error}</p>}
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-bold mb-2" htmlFor="title">
-                        Title
+                    <label className="block text-white font-bold mb-2" htmlFor="title">
+                        Название
                     </label>
                     <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -71,8 +71,8 @@ const CreateTrackForm: React.FC = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-bold mb-2" htmlFor="text">
-                        Text
+                    <label className="block text-white font-bold mb-2" htmlFor="text">
+                        Описание
                     </label>
                     <textarea
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -83,21 +83,20 @@ const CreateTrackForm: React.FC = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-bold mb-2" htmlFor="cover">
-                        Cover Image
+                    <label className="block text-white font-bold mb-2" htmlFor="cover">
+                        Добавить файл
                     </label>
                     <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline"
                         type="file"
                         id="cover"
                         onChange={handleCoverChange}
                         accept="image/*"
                     />
-                    {cover && <img src={cover} alt="Cover Preview" className="w-32 h-32 mt-2" />}
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 font-bold mb-2" htmlFor="artist">
-                        Artist
+                    <label className="block text-white font-bold mb-2" htmlFor="artist">
+                        Исполнитель
                     </label>
                     <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -115,7 +114,7 @@ const CreateTrackForm: React.FC = () => {
                         type="submit"
                         disabled={isLoading}
                     >
-                        {isLoading ? 'Creating...' : 'Create Track'}
+                        {isLoading ? 'Добавление...' : 'Добавить трек'}
                     </button>
                 </div>
             </form>
