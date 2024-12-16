@@ -7,7 +7,7 @@ const Home: FC = () => {
     return (
             isAuth ? (
                 <h1 className='flex justify-center mt-10 text-xl '>Здравствуйте!<br/>
-                    Теперь вы дожете добавлять и прослушивать треки.</h1>
+                    Теперь вы можете добавлять и прослушивать треки.</h1>
             ) : (
                 <h1 className='flex justify-center mt-10 text-xl '>Войдите, чтобы увидеть больше</h1>
             )

@@ -25,8 +25,10 @@ const Header: FC = () => {
 
     return (
         <header className='flex justify-between items-center bg-slate-800 p-4 backdrop-blur-sm shadow-sm '>
-            <Link to='/'>
+            <Link to='/' className='flex items-center gap-1'>
                 <RiMusicAiFill size={30} color='white' href='/'></RiMusicAiFill>
+                <h1 className='font-bold text-2xl'>UPmusic</h1>
+
             </Link>
 
             {isAuth && (
