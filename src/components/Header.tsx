@@ -35,14 +35,14 @@ const Header: FC = () => {
                     <nav className="ml-auto mr-10">
                         <ul className="flex items-center gap-5  ">
                             <li>
-                                <NavLink
+                                <button className=''><NavLink
                                     to={'/'}
                                     className={({isActive}) =>
                                         isActive ? 'text-white' : 'text-white/50'
                                     }
                                 >
                                     Главная
-                                </NavLink>
+                                </NavLink></button>
                             </li>
                             <li >
                                 <NavLink
